@@ -117,22 +117,32 @@ class Sedans extends Vehicle {
     }
 }
 
-class Motorcycles {
-    constructor(manufacturer, wheels, handleBars, noDoors) {
+class Motorcycles extends Vehicle {
+    constructor(manufacturer, wheels, noDoors, handleBars) {
         super(manufacturer, wheels);
-        this.handlebars = handleBars;
         this.noDoors = noDoors;
+        this.handleBars = handleBars;
     }
 
     aboutVehicle() {
-        if(noDoors === 0 && handldeBars === 2) {
-            console.log(`This vehicle is made by ${this.manufacturer}, it has no doors, ${this.wheels} wheels, and ${this.handlebars} handlebars. its a motorcycle!`);
+        if(this.noDoors === 0 && this.handleBars === true) {
+            console.log(`This vehicle is made by ${this.manufacturer}, it has no doors, ${this.wheels} wheels, and it has handlebars. its a motorcycle!`);
         }
         else {
-
+            console.log(`This vehicle is made by ${this.manufacturer}, it has ${this.noDoors} doors, ${this.wheels} wheels, and it has no handlebars. its a not motorcycle!`);
         }
     }
 }
+
+let v1 = new Vehicle('Honda', 4, 4);
+let s1 = new Sedans('Ford', 4, 4, 60, 'medium');
+let m1 = new Motorcycles('BMW', 2, 0, true);
+let m2 = new Motorcycles('Honda',4, 4, false);
+
+v1.aboutVehicle();
+s1.aboutVehicle()
+m1.aboutVehicle();
+m2.aboutVehicle();
 
 // let s1 = new Sedans('Honda', 4, 4, 80, 'medium')
 // s1.aboutVehicle();
